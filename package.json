@@ -56,7 +56,26 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "requireConfigFile": false,
+      "babelOptions": {
+        "presets": [
+          "@babel/preset-react"
+        ]
+      }
+    },
+    "extends": [
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:testing-library/react",
+      "plugin:jest/all"
+    ]
   },
   "browserslist": {
     "development": [
