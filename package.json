@@ -56,6 +56,14 @@
     ]
   },
   "eslintConfig": {
+    "env": {
+      "browser": true,
+      "jest/globals": true,
+      "es6": true
+    },
+    "rules": {
+      "no-debugger": "off"
+    },
     "parser": "@babel/eslint-parser",
     "parserOptions": {
       "ecmaVersion": 2019,
