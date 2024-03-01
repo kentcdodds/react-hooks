@@ -35,7 +35,14 @@ function Greeting({initialName = ''}) {
 }
 
 function App() {
-  return <Greeting />
+  const [counter, setCounter] = React.useState(0)
+  const handleClick = () => setCounter(counter => counter + 1)
+  return (
+    <>
+      <button onClick={handleClick}>{counter}</button>
+      <Greeting />
+    </>
+  )
 }
 
 export default App
