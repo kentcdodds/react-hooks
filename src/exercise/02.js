@@ -40,10 +40,6 @@ function Greeting({initialName = ''}) {
   )
 }
 
-Greeting.propTypes = {
-  initialName: PropTypes.string.isRequired,
-}
-
 function App() {
   const [counter, setCounter] = React.useState(0)
   const handleClick = () => setCounter(counter => counter + 1)
