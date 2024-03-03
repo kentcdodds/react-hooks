@@ -2,20 +2,12 @@
 // http://localhost:3000/isolated/exercise/04.js
 
 import * as React from 'react'
-
-function useLocalStorageState(key, initialValue) {
-  const updateValue = initialValue ?? window.localStorage.getItem(key) ?? ''
-  const [v, setV] = React.useState(updateValue)
-  React.useEffect(() => {
-    window.localStorage.setItem(key, v)
-  }, [key, v])
-  return [v, setV]
-}
+import {useLocalStorageState} from '../utils'
 
 function Board() {
   const squares = Array(9).fill(null)
   for (let index = 0; index < 9; index++) {
-    squares[index] = useLocalStorageState(index)
+    squares[index] = useLocalStorageState(index, '')
   }
 
   const nextValue = calculateNextValue(squares)
