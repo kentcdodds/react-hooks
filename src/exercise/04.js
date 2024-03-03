@@ -2,8 +2,14 @@
 // http://localhost:3000/isolated/exercise/04.js
 
 import * as React from 'react'
+import {useLocalStorageState} from '../utils'
 
-function useLocalStorageState(key, gameState, setGameState, gameViewLevel) {
+function useLocalStorageToSaveHistory(
+  key,
+  gameState,
+  setGameState,
+  gameViewLevel,
+) {
   const s = window.localStorage.getItem(key)
   const updateValue = JSON.parse(s) ?? Array(9).fill(null)
   const [v, setV] = React.useState(updateValue)
@@ -26,11 +32,14 @@ function useLocalStorageState(key, gameState, setGameState, gameViewLevel) {
 }
 
 function Board() {
-  const [gameState, setGameState] = React.useState(0)
-  const [gameViewLevel, setGameViewLevel] = React.useState(0)
+  const [gameState, setGameState] = useLocalStorageState('gameState', 0)
+  const [gameViewLevel, setGameViewLevel] = useLocalStorageState(
+    'gameViewLevel',
+    0,
+  )
   const squares = Array(9).fill(null)
   for (let index = 0; index < 9; index++) {
-    squares[index] = useLocalStorageState(
+    squares[index] = useLocalStorageToSaveHistory(
       index,
       gameState,
       setGameState,
