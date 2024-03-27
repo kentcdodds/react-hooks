@@ -4,7 +4,7 @@
 
 // PLEASE NOTE: there was a subtle change in the order of cleanup functions
 // getting called in React 17:
-// https://github.com/kentcdodds/react-hooks/issues/90
+// https://github.com/epicweb-dev/react-hooks/issues/90
 
 import * as React from 'react'
 
